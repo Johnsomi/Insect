@@ -12,6 +12,8 @@ namespace InsectShooter
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        World world;
+
         public Main()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -41,6 +43,8 @@ namespace InsectShooter
             Globals.content = this.Content;
             Globals.spriteBatch = new SpriteBatch(GraphicsDevice);
 
+
+            world = new World();
             // TODO: use this.Content to load your game content here
         }
 
@@ -65,6 +69,8 @@ namespace InsectShooter
 
             // TODO: Add your update logic here
 
+            world.Update();
+
             base.Update(gameTime);
         }
 
@@ -80,7 +86,7 @@ namespace InsectShooter
 
             Globals.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
 
-
+            world.Draw();
 
             Globals.spriteBatch.End();
 
